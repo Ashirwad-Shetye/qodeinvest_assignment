@@ -1,7 +1,7 @@
 export default async function handler(req, res) {
+    const SHEET_ID = process.env.NEXT_PUBLIC_GOOGLE_SHEET_ID;
+	const GID = process.env.NEXT_PUBLIC_SHEET_GID;
 	try {
-		const SHEET_ID = "1ePbKDvi7pLkLWoiSFYaIPIr6X4MU_jIr";
-		const GID = "320586506";
 		const csvUrl = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${GID}`;
 
 		const response = await fetch(csvUrl);
