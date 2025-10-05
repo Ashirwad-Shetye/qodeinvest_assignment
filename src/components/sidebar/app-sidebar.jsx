@@ -28,7 +28,7 @@ const AppSidebar = () => {
 								<SidebarMenuItem key={idx}>
 									<SidebarMenuButton asChild>
 										<a
-											href={`#${item.id}`}
+											href={`${item.id}`}
 											className='flex items-center gap-2'
 										>
 											{item.icon ? (
