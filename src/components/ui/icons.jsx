@@ -7,6 +7,9 @@ import { FiUserPlus as Refer } from "react-icons/fi";
 import { BiUser as User } from "react-icons/bi";
 import { RiArrowUpSLine as ArrowUp } from "react-icons/ri";
 import { RxExternalLink as ExternalLink } from "react-icons/rx";
+import { FiDownload as Download } from "react-icons/fi";
+import { LuRefreshCcw as RefreshCw } from "react-icons/lu";
+import { FiAlertCircle as AlertCircle } from "react-icons/fi";
 
 export const Icons = {
 	Home,
@@ -14,8 +17,11 @@ export const Icons = {
 	Beaker,
 	Archive,
 	Gift,
-    User,
-    Refer,
+	User,
+	Refer,
 	ArrowUp,
-	ExternalLink
+	ExternalLink,
+	Download,
+	RefreshCw,
+	AlertCircle,
 };

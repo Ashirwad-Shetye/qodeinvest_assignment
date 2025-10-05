@@ -59,3 +59,34 @@ export const QUICK_ACTIONS = [
 		icon: Icons.ExternalLink,
 	},
 ];
+
+export const RETURNS_DATA = [
+	{
+		name: "Focused",
+		ytd: -1.7,
+		oneDay: 0.1,
+		oneWeek: 2.9,
+		oneMonth: 7.6,
+		threeMonth: 2.2,
+		sixMonth: 10.1,
+		oneYear: 43.5,
+		threeYear: 23.9,
+		si: 22.5,
+		dd: -2.8,
+		maxdd: -40.3,
+	},
+	{
+		name: "NIFTY50",
+		ytd: 3.1,
+		oneDay: 0.1,
+		oneWeek: 1.1,
+		oneMonth: 1.4,
+		threeMonth: 4.4,
+		sixMonth: 16.2,
+		oneYear: 26.2,
+		threeYear: 16.0,
+		si: 14.5,
+		dd: -1.5,
+		maxdd: -38.4,
+	},
+];

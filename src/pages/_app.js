@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export default function App({ Component, pageProps }) {
 	return (
-		<div className={`${geistSans.variable} ${geistMono.variable} font-sans w-screen`}>
+		<div className={`${geistSans.variable} ${geistMono.variable} font-sans w-screen bg-white`}>
 			<SidebarProvider>
 				<div className='flex w-full'>
 					<AppSidebar />
