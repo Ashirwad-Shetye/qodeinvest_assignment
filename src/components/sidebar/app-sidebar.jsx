@@ -1,0 +1,43 @@
+
+import {
+	Sidebar,
+	SidebarContent,
+	SidebarGroup,
+	SidebarGroupContent,
+	SidebarGroupLabel,
+	SidebarMenu,
+	SidebarMenuButton,
+	SidebarMenuItem,
+} from "@/components/ui/sidebar";
+import { NAV_ITEMS } from "@/constants/nav-items";
+import Logo from "@/components/logo/logo";
+
+const AppSidebar = () => {
+	return (
+		<Sidebar>
+			<SidebarContent>
+				<SidebarGroup>
+					<SidebarGroupLabel>
+						<Logo />
+					</SidebarGroupLabel>
+					<SidebarGroupContent>
+						<SidebarMenu>
+							{NAV_ITEMS.map((item, idx) => (
+								<SidebarMenuItem key={idx}>
+									<SidebarMenuButton asChild>
+										<a href={`#${item.id}`} className="flex items-center gap-2">
+											{item.icon ? <item.icon className="text-lg shrink-0" /> : null}
+											<span>{item.label}</span>
+										</a>
+									</SidebarMenuButton>
+								</SidebarMenuItem>
+							))}
+						</SidebarMenu>
+					</SidebarGroupContent>
+				</SidebarGroup>
+			</SidebarContent>
+		</Sidebar>
+	);
+}
+
+export default AppSidebar;
