@@ -17,7 +17,7 @@ import SidebarFooterDropdown from "@/components/sidebar/footer";
 const AppSidebar = () => {
 	return (
 		<Sidebar>
-			<SidebarContent className='flex-1 flex flex-col justify-between overflow-hidden'>
+			<SidebarContent className='flex-1 flex flex-col justify-between overflow-hidden bg-white'>
 				<SidebarGroup className='flex flex-col gap-5 py-5'>
 					<SidebarGroupLabel>
 						<Logo />
@@ -43,7 +43,7 @@ const AppSidebar = () => {
 					</SidebarGroupContent>
 				</SidebarGroup>
 				<SidebarFooter>
-					<SidebarFooterDropdown code="123456" validUntil="2025-01-01" />
+					<SidebarFooterDropdown code="CMP1Y" validUntil="April 19, 2025" />
 				</SidebarFooter>
 			</SidebarContent>
 		</Sidebar>
