@@ -10,20 +10,36 @@ import { transformNavToChartData } from "@/utils/transform";
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function PortfoliosPage() {
-	const [dateRange, setDateRange] = useState({
-		from: "2019-01-01",
-		to: "2024-04-24",
-	});
+    const initialDateRange = {
+			from: "2019-01-01",
+			to: "2024-04-24",
+		};
+	const [dateRange, setDateRange] = useState(initialDateRange);
 
-	const { data, error, isLoading, mutate } = useSWR("/api/nav-data", fetcher, {
+    const { data, error, isLoading, mutate } = useSWR("/api/nav-data", fetcher, {
 		refreshInterval: 60000,
 		revalidateOnFocus: true,
 	});
 
-	const chartData = useMemo(() => {
+    const chartData = useMemo(() => {
 		if (!data?.data) return [];
-		return transformNavToChartData(data.data);
-	}, [data]);
+        return transformNavToChartData(data.data);
+    }, [data]);
+
+    const filteredChartData = useMemo(() => {
+        if (!chartData || chartData.length === 0) return [];
+        if (!dateRange?.from || !dateRange?.to) return chartData;
+
+        const from = new Date(dateRange.from);
+        const to = new Date(dateRange.to);
+
+        return chartData.filter((d) => {
+            const [day, month, year] = d.date.split("-");
+            const iso = `${year}-${month}-${day}`;
+            const current = new Date(iso);
+            return current >= from && current <= to;
+        });
+    }, [chartData, dateRange]);
 
 	if (isLoading) {
 		return (
@@ -59,8 +75,8 @@ export default function PortfoliosPage() {
 				</Button>
 			</div>
 		);
-	}
-
+    }
+    
 	return (
 		<div className='max-w-7xl mx-auto p-8 animate-in fade-in slide-in-from-right-4 bg-white duration-700'>
 			<div className='flex items-center justify-between mb-8'>
@@ -107,11 +123,13 @@ export default function PortfoliosPage() {
 				<ReturnsTable data={RETURNS_DATA} />
 			</div>
 
-			{chartData.length > 0 && (
+			{filteredChartData.length > 0 && (
 				<EquityCurveSection
-					chartData={chartData}
+					chartData={filteredChartData}
 					dateRange={dateRange}
 					onDateRangeChange={setDateRange}
+					initialDateRange={initialDateRange}
+					setDateRange={setDateRange}
 				/>
 			)}
 		</div>
