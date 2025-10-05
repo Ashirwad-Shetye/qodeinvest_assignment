@@ -16,7 +16,7 @@ const AppSidebar = () => {
 	return (
 		<Sidebar>
 			<SidebarContent>
-				<SidebarGroup>
+				<SidebarGroup className="flex flex-col gap-5 py-5">
 					<SidebarGroupLabel>
 						<Logo />
 					</SidebarGroupLabel>
